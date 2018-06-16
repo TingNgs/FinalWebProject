@@ -1,9 +1,10 @@
 $(function() {
     //$("#footer").load("footer.html");
-    $("#header").load("header.html");
+	$('header').load('header.html');
+	
 });
 $(document).ready(function(){
-	$('#nav-icon').click(function(){
-		$(this).toggleClass('open');
+	$(document).on("click", "#nav-icon", function() {
+		$("#nav-icon").toggleClass('open');
 	});
 });
