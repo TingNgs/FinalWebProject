@@ -113,12 +113,11 @@ $(document).ready(function () {
 function loadData() {
 	if (firebase.auth().currentUser) {
 		const user = firebase.auth().currentUser;
-		var dbUser = firebase.database().ref('ChineseName');
-		dbUser.on('value',gotData,errData);
-		/*dbUser.on('value', function (snapshot) {
-			console.log(snapshot.child(user.uid))
-			$('#i_chineseName').val(snapshot.child('user/' + user.uid + '/ChineseName').val());
-		})*/
+		var dbUser = firebase.database().ref();
+		dbUser.on('user.uid', function (snapshot) {
+			console.log(snapshot.ChineseName)
+			//$('#i_chineseName').val(snapshot.child('user/' + user.uid + '/ChineseName').val());
+		})
 	}
 }
 
