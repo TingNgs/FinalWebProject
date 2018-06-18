@@ -113,8 +113,8 @@ $(document).ready(function () {
 function loadData() {
 	if (firebase.auth().currentUser) {
 		const user = firebase.auth().currentUser;
-		var dbUser = firebase.database().ref();
-		dbUser.on('user.uid', function (snapshot) {
+		var dbUser = firebase.database().ref(user.uid);
+		dbUser.on('value', function (snapshot) {
 			console.log(snapshot.ChineseName)
 			//$('#i_chineseName').val(snapshot.child('user/' + user.uid + '/ChineseName').val());
 		})
