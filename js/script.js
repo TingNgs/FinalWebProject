@@ -19,6 +19,8 @@ $(document).ready(function () {
 		if (user) {
 			document.getElementById("login_group").style.display = "none";
 			document.getElementById("logout_group").style.display = "block"
+			if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry.html")
+			loadData();
 		} else {
 			document.getElementById("login_group").style.display = "block";
 			document.getElementById("logout_group").style.display = "none"
@@ -107,11 +109,9 @@ $(document).ready(function () {
 			uid: user.uid
 		})
 	});
-	loadData();
 });
 
 function loadData() {
-	
 	if (firebase.auth().currentUser) {
 		var userId = firebase.auth().currentUser.uid;
 		return firebase.database().ref('/users/' + userId).once('value').then(function (snapshot) {
