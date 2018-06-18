@@ -105,7 +105,8 @@ $(document).ready(function () {
 			DateOfBirth: dob,
 			PassportNo: passportNo,
 			ARCNo: arcNo,
-			Email: email
+			Email: email,
+			uid: user.uid
 		})
 	});
 });
