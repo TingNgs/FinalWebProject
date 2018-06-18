@@ -115,7 +115,7 @@ function loadData() {
 		const user = firebase.auth().currentUser;
 		var dbUser = firebase.database().ref('user');
 		dbUser.on('child_added', function (snapshot) {
-			console.log(snapshot.ChineseName)
+			console.log(snapshot.val())
 			//$('#i_chineseName').val(snapshot.child('user/' + user.uid + '/ChineseName').val());
 		})
 	}
