@@ -108,11 +108,10 @@ $(document).ready(function () {
 		})
 	});
 	loadData();
-	console.log("testset")
 });
 
 function loadData() {
-	console.log("testset1111")
+	
 	if (firebase.auth().currentUser) {
 		var userId = firebase.auth().currentUser.uid;
 		return firebase.database().ref('/users/' + userId).once('value').then(function (snapshot) {
@@ -126,5 +125,5 @@ function loadData() {
 			$('#i_arcNo').val(snapshot.val().ARCNo);
 			$('#i_email').val(snapshot.val().Email);
 		});
-	}
+	}else{console.log("testset1111")}
 }
