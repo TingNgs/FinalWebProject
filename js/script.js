@@ -1,7 +1,6 @@
 $(function () {
 	//$("#footer").load("footer.html");
 	$('header').load('header.html');
-
 });
 $(document).ready(function () {
 	var config = {
@@ -13,7 +12,6 @@ $(document).ready(function () {
 		messagingSenderId: "462597688502"
 	};
 	firebase.initializeApp(config);
-	loadData();
 	//var dbRef = firebase.database().ref.child('object');
 	//var ref = new Firebase("https://webfinalproject-9ddcc.firebaseio.com/");
 	//console.log(dbRef);
@@ -109,6 +107,7 @@ $(document).ready(function () {
 			uid: user.uid
 		})
 	});
+	loadData();
 });
 
 function loadData() {
@@ -126,12 +125,4 @@ function loadData() {
 			$('#i_email').val(snapshot.val().Email);
 		});
 	}
-}
-
-function gotData(data) {
-	console.log(data);
-}
-
-function errData(data) {
-	console.log("error");
 }
