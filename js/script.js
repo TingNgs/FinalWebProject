@@ -93,7 +93,7 @@ $(document).ready(function () {
 		const arcNo = $('#i_arcNo').val();
 		const email = $('#i_email').val();
 
-		console.log(cName, eName)
+		console.log(user)
 
 		const dbUserid = dbUser.child(user.uid)
 		dbUserid.push({
