@@ -113,10 +113,11 @@ $(document).ready(function () {
 function loadData() {
 	if (firebase.auth().currentUser) {
 		const user = firebase.auth().currentUser;
-		var dbUser = firebase.database().ref().child('user').child(user.uid);
-		dbUser.on('value', function (snapshot) {
+		var dbUser = firebase.database().ref(user.uid);
+		console.log(dbUser);
+		/*dbUser.on('value', function (snapshot) {
 			console.log(snapshot.child(user.uid))
 			$('#i_chineseName').val(snapshot.child('user/' + user.uid + '/ChineseName').val());
-		})
+		})*/
 	}
 }
