@@ -110,11 +110,13 @@ $(document).ready(function () {
 	});
 });
 
-function loadData(){
-	var dbUser = firebase.database().ref().child('user');
-	const user = firebase.auth().currentUser;
-	dbUser.on('value',function(snapshot){
-		console.log(snapshot.child('user/'+user.uid+'/ChineseName').val())
-		$('#i_chineseName').val(snapshot.child('user/'+user.uid+'/ChineseName').val());
-	})
+function loadData() {
+	if (firebase.auth().currentUser) {
+		const user = firebase.auth().currentUser;
+		var dbUser = firebase.database().ref().child('user').child(user.uid);
+		dbUser.on('value', function (snapshot) {
+			console.log(snapshot.child('user/' + user.uid + '/ChineseName').val())
+			$('#i_chineseName').val(snapshot.child('user/' + user.uid + '/ChineseName').val());
+		})
+	}
 }
