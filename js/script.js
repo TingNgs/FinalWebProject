@@ -11,16 +11,21 @@ $(document).ready(function () {
 		projectId: "webfinalproject-9ddcc",
 		storageBucket: "webfinalproject-9ddcc.appspot.com",
 		messagingSenderId: "462597688502"
-	  };
-	  firebase.initializeApp(config);
+	};
+	firebase.initializeApp(config);
 
 	//var dbRef = firebase.database().ref.child('object');
 	//var ref = new Firebase("https://webfinalproject-9ddcc.firebaseio.com/");
 	//console.log(dbRef);
-	  firebase.auth().onAuthStateChanged(function(user){
-		  if(user){document.getElementById("login_group").style.display = "none";document.getElementById("logout_group").style.display = "block"}
-		  else{document.getElementById("login_group").style.display = "block";document.getElementById("logout_group").style.display = "none"}
-	  })
+	firebase.auth().onAuthStateChanged(function (user) {
+		if (user) {
+			document.getElementById("login_group").style.display = "none";
+			document.getElementById("logout_group").style.display = "block"
+		} else {
+			document.getElementById("login_group").style.display = "block";
+			document.getElementById("logout_group").style.display = "none"
+		}
+	})
 	$(document).on("click", "#signUp-submit", function (e) {
 		const email = $('#email').val();
 		const pass = $('#password').val();
@@ -64,7 +69,9 @@ $(document).ready(function () {
 			});
 	});
 	$(document).on("click", "#logout-submit", function (e) {
-		firebase.auth().signOut().then(function(){}).catch(function(error){console.log(error)});
+		firebase.auth().signOut().then(function () {}).catch(function (error) {
+			console.log(error)
+		});
 	});
 	//const auth = firebase.auth();
 	//auth.signInWithEmailAndPassword(email, pass);
@@ -73,5 +80,32 @@ $(document).ready(function () {
 	$(document).on("click", "#nav-icon", function () {
 		$("#nav-icon").toggleClass('open');
 
+	});
+	$(document).on("click", "#data-submit", function (user) {
+		var dbUser = firebase.database().ref().child('user');
+		const cName = $('#i_chineseName').val();
+		const eName = $('#i_englishName').val();
+		const dept = $('#i_dept').val();
+		const studNo = $('#i_studNo').val();
+		const cellPhone = $('#i_cellPhone').val();
+		const dob = $('#i_dob').val();
+		const passportNo = $('#i_passportNo').val();
+		const arcNo = $('#i_arcNo').val();
+		const email = $('#i_email').val();
+
+		console.log(cName, eName)
+
+		const dbUserid = dbUser.child(user.uid)
+		dbUserid.push({
+			ChineseName: cName,
+			EnglishName: eName,
+			Department: dept,
+			StudentNo: studNo,
+			CellPhone: cellPhone,
+			DateOfBirth: dob,
+			PassportNo: passportNo,
+			ARCNo: arcNo,
+			Email: email
+		})
 	});
 });
