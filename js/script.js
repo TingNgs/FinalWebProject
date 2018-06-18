@@ -115,7 +115,15 @@ function loadData() {
 	if (firebase.auth().currentUser) {
 		var userId = firebase.auth().currentUser.uid;
 		return firebase.database().ref('/users/' + userId).once('value').then(function (snapshot) {
-			console.log(snapshot.val() && snapshot.val().ChineseName);
+			$('#i_chineseName').val(snapshot.val().ChineseName);
+			$('#i_englishName').val(snapshot.val().EnglishName);
+			$('#i_dept').val(snapshot.val().Department);
+			$('#i_studNo').val(snapshot.val().StudentNo);
+			$('#i_cellPhone').val(snapshot.val().CellPhone);
+			$('#i_dob').val(snapshot.val().DateOfBirth);
+			$('#i_passportNo').val(snapshot.val().PassportNo);
+			$('#i_arcNo').val(snapshot.val().ARCNo);
+			$('#i_email').val(snapshot.val().Email);
 			// ...
 		});
 	}
