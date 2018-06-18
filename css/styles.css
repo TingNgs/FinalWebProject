@@ -45,11 +45,14 @@ html {
         margin: 0 auto;
     }
 }
-
+@media only screen and (min-width: 768px) {
+    #scroll_text{display: none;}
+}
 @media only screen and (max-width: 768px) {
     #framework img {
         width: 150%;
     }
+    
 }
 
 @media only screen and (min-width: 530px) {}
@@ -191,4 +194,30 @@ header {
 #framework p {
     font-size: 28px;
     color: #1D84B5;
+}
+#represent{
+    margin-top: 20px;
+}
+#represent .member{
+    margin-top: 20px;
+    border: 2px solid rgb(119, 162, 219);
+    border-radius: 5px;
+}
+#represent .member_info{
+    color: #2E4057;
+    font-size: 18px;
+    margin-top: 20px;
+}
+#represent .member_info a{
+    text-decoration: none;
+    color: #2E4057;
+    font-size: 18px;
+}
+#represent .member img{
+    width: 100%;
+}
+#represent .member .member_info_icon img{
+ width: 25px;   
+ height: 25px; 
+ margin-right: 5px;
 }
