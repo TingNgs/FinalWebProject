@@ -13,7 +13,7 @@ $(document).ready(function () {
 		messagingSenderId: "462597688502"
 	};
 	firebase.initializeApp(config);
-
+	loadData();
 	//var dbRef = firebase.database().ref.child('object');
 	//var ref = new Firebase("https://webfinalproject-9ddcc.firebaseio.com/");
 	//console.log(dbRef);
@@ -124,7 +124,6 @@ function loadData() {
 			$('#i_passportNo').val(snapshot.val().PassportNo);
 			$('#i_arcNo').val(snapshot.val().ARCNo);
 			$('#i_email').val(snapshot.val().Email);
-			// ...
 		});
 	}
 }
