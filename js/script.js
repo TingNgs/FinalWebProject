@@ -17,7 +17,10 @@ $(document).ready(function () {
 	//var dbRef = firebase.database().ref.child('object');
 	//var ref = new Firebase("https://webfinalproject-9ddcc.firebaseio.com/");
 	//console.log(dbRef);
-
+	  firebase.auth().onAuthStateChanged(function(user){
+		  if(user){document.getElementById("login_group").style.display = "none";document.getElementById("logout_button").style.display = "block"}
+		  else{document.getElementById("login_group").style.display = "block";document.getElementById("logout_button").style.display = "none"}
+	  })
 	$(document).on("click", "#signUp-submit", function (e) {
 		const email = $('#email').val();
 		const pass = $('#password').val();

@@ -87,7 +87,12 @@ header nav{margin-top: 15px;}
     width: 100px;
     height: 60px;
 }
-
+#login_group{
+    display: block;
+}
+#logout_button{
+    display: none;
+}
 #nav-icon {
     width: 60px;
     height: 45px;
