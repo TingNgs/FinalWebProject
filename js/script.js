@@ -106,25 +106,25 @@ $(document).ready(function () {
 			PassportNo: passportNo,
 			ARCNo: arcNo,
 			Email: email,
-			uid:user.uid
+			uid: user.uid
 		})
 	});
 });
 
 function loadData() {
 	if (firebase.auth().currentUser) {
-		const user = firebase.auth().currentUser;
-		var dbUser = firebase.database().ref('users')
-		dbUser.on('value', function (snapshot) {
-			console.log(snapshot.val())
-			//$('#i_chineseName').val(snapshot.child('user/' + user.uid + '/ChineseName').val());
-		})
+		var userId = firebase.auth().currentUser.uid;
+		return firebase.database().ref('/users/' + userId).once('value').then(function (snapshot) {
+			console.log(snapshot.val() && snapshot.val().ChineseName);
+			// ...
+		});
 	}
 }
 
-function gotData(data){
+function gotData(data) {
 	console.log(data);
 }
-function errData(data){
+
+function errData(data) {
 	console.log("error");
 }
