@@ -82,7 +82,7 @@ $(document).ready(function () {
 
 	});
 	$(document).on("click", "#data-submit", function (e) {
-		var dbUser = firebase.database().ref().child('user');
+		var dbUser = firebase.database().ref().child('users');
 		const cName = $('#i_chineseName').val();
 		const eName = $('#i_englishName').val();
 		const dept = $('#i_dept').val();
@@ -114,7 +114,7 @@ $(document).ready(function () {
 function loadData() {
 	if (firebase.auth().currentUser) {
 		const user = firebase.auth().currentUser;
-		var dbUser = firebase.database().ref().child('user');
+		var dbUser = firebase.database().ref().child('users');
 		dbUser.on('value', function (snapshot) {
 			console.log(snapshot.val())
 			//$('#i_chineseName').val(snapshot.child('user/' + user.uid + '/ChineseName').val());
