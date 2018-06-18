@@ -96,7 +96,7 @@ $(document).ready(function () {
 		console.log(user.uid)
 
 		const dbUserid = dbUser.child(user.uid)
-		dbUserid.push({
+		dbUserid.set({
 			ChineseName: cName,
 			EnglishName: eName,
 			Department: dept,
