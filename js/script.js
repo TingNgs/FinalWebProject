@@ -63,6 +63,9 @@ $(document).ready(function () {
 				console.log(error);
 			});
 	});
+	$(document).on("click", "#logout-submit", function (e) {
+		firebase.auth().signOut().then(function(){}).catch(function(error){console.log(error)});
+	});
 	//const auth = firebase.auth();
 	//auth.signInWithEmailAndPassword(email, pass);
 	//auth.createUserWithEmailAndPassword(email, pass)
