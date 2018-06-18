@@ -108,9 +108,11 @@ $(document).ready(function () {
 		})
 	});
 	loadData();
+	console.log("testset")
 });
 
 function loadData() {
+	console.log("testset1111")
 	if (firebase.auth().currentUser) {
 		var userId = firebase.auth().currentUser.uid;
 		return firebase.database().ref('/users/' + userId).once('value').then(function (snapshot) {
