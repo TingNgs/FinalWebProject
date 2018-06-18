@@ -109,3 +109,11 @@ $(document).ready(function () {
 		})
 	});
 });
+
+function loadData(){
+	var dbUser = firebase.database().ref().child('user');
+	const user = firebase.auth().currentUser;
+	dbUser.on('value',function(snapshot){
+		$('#i_chineseName').val(snapshot.child('user/'+user.uid+'/ChineseName').val());
+	})
+}
