@@ -81,7 +81,7 @@ $(document).ready(function () {
 		$("#nav-icon").toggleClass('open');
 
 	});
-	$(document).on("click", "#data-submit", function (user) {
+	$(document).on("click", "#data-submit", function (e) {
 		var dbUser = firebase.database().ref().child('user');
 		const cName = $('#i_chineseName').val();
 		const eName = $('#i_englishName').val();
@@ -92,8 +92,8 @@ $(document).ready(function () {
 		const passportNo = $('#i_passportNo').val();
 		const arcNo = $('#i_arcNo').val();
 		const email = $('#i_email').val();
-
-		console.log(user)
+		const user = firebase.auth().currentUser;
+		console.log(user.uid)
 
 		const dbUserid = dbUser.child(user.uid)
 		dbUserid.push({
