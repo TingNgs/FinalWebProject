@@ -105,8 +105,7 @@ $(document).ready(function () {
 			DateOfBirth: dob,
 			PassportNo: passportNo,
 			ARCNo: arcNo,
-			Email: email,
-			uid: user.uid
+			Email: email
 		})
 	});
 });
@@ -115,7 +114,7 @@ function loadData() {
 	if (firebase.auth().currentUser) {
 		const user = firebase.auth().currentUser;
 		var dbUser = firebase.database().ref('user');
-		dbUser.on('child_added', function (snapshot) {
+		dbUser.on('value', function (snapshot) {
 			console.log(snapshot.val())
 			//$('#i_chineseName').val(snapshot.child('user/' + user.uid + '/ChineseName').val());
 		})
