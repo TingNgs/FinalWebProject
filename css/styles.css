@@ -288,3 +288,12 @@ header {
     padding: 7em 0 8em 0;
     margin-bottom: 0;
 }
+
+#footer {
+    position: static;
+    padding: 3em 1em 3em 1em;
+    background: #333;
+    color: rgb(153, 153, 153);
+    text-align: center;
+    font-size: 14px;
+}
