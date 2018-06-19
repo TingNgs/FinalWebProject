@@ -8,15 +8,17 @@ html {
 }
 
 @media only screen and (min-width: 1280px) {
-    .container-fluid{
+    .container-fluid {
         width: 1280px;
     }
     #framework img {
         width: 100%;
         margin: 0 auto;
     }
-    header img{margin-left: 20px;}
-    #framework .container-fluid{
+    header img {
+        margin-left: 20px;
+    }
+    #framework .container-fluid {
         width: 95%;
         margin: 0 auto;
     }
@@ -25,13 +27,14 @@ html {
 @media only screen and (max-width: 1280px) {
     #framework img {
         width: 100%;
-    } 
-    header img{margin-left: 0px;}
-    
+    }
+    header img {
+        margin-left: 0px;
+    }
 }
 
 @media only screen and (max-width: 990px) {
-    .container-fluid{
+    .container-fluid {
         width: 95%;
         margin: 0 auto;
     }
@@ -45,14 +48,17 @@ html {
         margin: 0 auto;
     }
 }
+
 @media only screen and (min-width: 768px) {
-    #scroll_text{display: none;}
+    #scroll_text {
+        display: none;
+    }
 }
+
 @media only screen and (max-width: 768px) {
     #framework img {
         width: 150%;
     }
-    
 }
 
 @media only screen and (min-width: 530px) {}
@@ -62,14 +68,19 @@ html {
         width: 250%;
     }
 }
-.dropdown-menu{padding: 0; margin: 0;border: 0px;}
+
+.dropdown-menu {
+    padding: 0;
+    margin: 0;
+    border: 0px;
+}
+
 .dropdown .dropdown-menu {
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s;
-
     max-height: 0;
     display: block;
     overflow: hidden;
@@ -81,18 +92,27 @@ html {
     opacity: 1;
 }
 
-header{margin-top: 40px;}
-header nav{margin-top: 15px;}
+header {
+    margin-top: 40px;
+}
+
+header nav {
+    margin-top: 15px;
+}
+
 #header_logo {
     width: 100px;
     height: 60px;
 }
-#login_group{
+
+#login_group {
     display: block;
 }
-#logout_group{
+
+#logout_group {
     display: none;
 }
+
 #nav-icon {
     width: 60px;
     height: 45px;
@@ -106,10 +126,12 @@ header nav{margin-top: 15px;}
     transition: .5s ease-in-out;
     cursor: pointer;
 }
-.navbar-toggler{
+
+.navbar-toggler {
     padding: 0;
 }
-#nav-icon span{
+
+#nav-icon span {
     position: absolute;
     display: block;
     height: 9px;
@@ -166,13 +188,20 @@ header nav{margin-top: 15px;}
     width: 0%;
     left: 50%;
 }
-nav{font-size: 18px;}
-header a h1{
+
+nav {
+    font-size: 18px;
+}
+
+header a h1 {
     font-size: 48px;
     color: aliceblue;
     text-decoration: none;
 }
-header a:hover{text-decoration: none;}
+
+header a:hover {
+    text-decoration: none;
+}
 
 header .nav-link {
     color: aliceblue
@@ -200,29 +229,62 @@ header {
     font-size: 28px;
     color: #1D84B5;
 }
-#represent{
+
+#represent {
     margin-top: 20px;
 }
-#represent .member{
+
+#represent .member {
     margin-top: 20px;
     border: 2px solid rgb(119, 162, 219);
     border-radius: 5px;
 }
-#represent .member_info{
+
+#represent .member_info {
     color: #2E4057;
     font-size: 18px;
     margin-top: 20px;
 }
-#represent .member_info a{
+
+#represent .member_info a {
     text-decoration: none;
     color: #2E4057;
     font-size: 18px;
 }
-#represent .member img{
+
+#represent .member img {
     width: 100%;
 }
-#represent .member .member_info_icon img{
- width: 25px;   
- height: 25px; 
- margin-right: 5px;
+
+#represent .member .member_info_icon img {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+#head {
+    position: relative;
+    min-height: 100%;
+    height: 100%;
+    background-image: url(../img/hk1.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #fff;
+    text-align: center;
+    padding: 20em 0 20em 0;
+    -webkit-animation: fadein 3s;
+    /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 3s;
+    /* Firefox < 16 */
+    -ms-animation: fadein 3s;
+    /* Internet Explorer */
+    animation: fadein 3s;
+}
+
+#banner {
+    background: rgb(254, 208, 132);
+    text-align: center;
+    padding: 7em 0 8em 0;
+    margin-bottom: 0;
 }
