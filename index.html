@@ -16,22 +16,63 @@
 <body>
     <header></header>
     <div id="head">
-        <a href="#banner" class="fa fa-chevron-circle-down fa-5x scrolly" style=" text-decoration:none; border:none;" rel=""></a>
-    </div>
-    <div id="banner">
-        <h1 style="font-size:48px; font-weight:300;">歡迎來到<strong style="color: #fff;">國立臺北科技大學香港僑生資訊網</strong></h1>
+        <h1 style="font-size:48px; font-weight:300;">歡迎來到<strong>國立臺北科技大學香港僑生資訊網</strong></h1>
         <h4 style="margin-top:30px; margin-bottom:15px; font-size:28px; font-weight:300; color:#333">提供最快、最新、最重要的資訊給在校及未來的香港僑生。</h4>
+        <a href="#info" class="fa fa-chevron-circle-down fa-5x scrolly" style=" text-decoration:none; border:none;" rel=""></a>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+    <div id="info">
+        <div class="info-title">最新資訊</div>
+        <div id="info-carousel" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#info-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#info-carousel" data-slide-to="1"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/c1.jpg">
+                    <div class="carousel-caption">
+                        <div class="info-caption">
+                            <h3>協助107學年度僑生新生接洽說明會</h3>
+                            <p>22/6/2018 6:15pm - 8:15pm</p>
+                            <p>二教304教室</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/c1.jpg">
+                    <div class="carousel-caption">
+                        <div class="info-caption">
+                            <h3>106學年度僑生校外台北101觀景台參訪</h3>
+                            <p>4/7/2018 12:00pm - 5:00pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#info-carousel" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#info-carousel" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+
+        </div>
+    </div>
+    <script src=" https://code.jquery.com/jquery-3.3.1.min.js " integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin=" anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js " integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js " integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T " crossorigin="anonymous "></script>
+    <script src="js/script.js "></script>
     <footer></footer>
 </body>
 
 </html>
 <script>
-    $("[data-toggle=popover]").popover();
+    $("[data-toggle=popover] ").popover();
 </script>
 <script>
     $('a').click(function() {
