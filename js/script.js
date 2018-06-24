@@ -1,8 +1,8 @@
-$(function() {
+$(function () {
     $("footer").load("footer.html");
     $('header').load('header.html');
 });
-$(document).ready(function() {
+$(document).ready(function () {
     var config = {
         apiKey: "AIzaSyAgTbBfhw6qEJ_2UOMRKFDqSqX_oMW_0kc",
         authDomain: "webfinalproject-9ddcc.firebaseapp.com",
@@ -15,7 +15,7 @@ $(document).ready(function() {
     //var dbRef = firebase.database().ref.child('object');
     //var ref = new Firebase("https://webfinalproject-9ddcc.firebaseio.com/");
     //console.log(dbRef);
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             document.getElementById("login_group").style.display = "none";
             document.getElementById("logout_group").style.display = "block"
@@ -26,7 +26,7 @@ $(document).ready(function() {
             document.getElementById("logout_group").style.display = "none"
         }
     })
-    $(document).on("click", "#signUp-submit", function(e) {
+    $(document).on("click", "#signUp-submit", function (e) {
         const email = $('#email').val();
         const pass = $('#password').val();
         //const auth = firebase.auth();
@@ -35,7 +35,7 @@ $(document).ready(function() {
         //	console.log(e.message);
         //});
         firebase.auth().createUserWithEmailAndPassword(email, pass)
-            .catch(function(error) {
+            .catch(function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
@@ -47,7 +47,7 @@ $(document).ready(function() {
                 console.log(error);
             });
     });
-    $(document).on("click", "#login-submit", function(e) {
+    $(document).on("click", "#login-submit", function (e) {
         const email = $('#email').val();
         const pass = $('#password').val();
         //const auth = firebase.auth();
@@ -56,7 +56,7 @@ $(document).ready(function() {
         //	console.log(e.message);
         //});
         firebase.auth().signInWithEmailAndPassword(email, pass)
-            .catch(function(error) {
+            .catch(function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
@@ -68,8 +68,8 @@ $(document).ready(function() {
                 console.log(error);
             });
     });
-    $(document).on("click", "#logout-submit", function(e) {
-        firebase.auth().signOut().then(function() {}).catch(function(error) {
+    $(document).on("click", "#logout-submit", function (e) {
+        firebase.auth().signOut().then(function () {}).catch(function (error) {
             console.log(error)
         });
     });
@@ -77,11 +77,11 @@ $(document).ready(function() {
     //auth.signInWithEmailAndPassword(email, pass);
     //auth.createUserWithEmailAndPassword(email, pass)
     //auth.onAuthStateChanged(firebaseUser => {});
-    $(document).on("click", "#nav-icon", function() {
+    $(document).on("click", "#nav-icon", function () {
         $("#nav-icon").toggleClass('open');
 
     });
-    $(document).on("click", "#data-submit", function(e) {
+    $(document).on("click", "#data-submit", function (e) {
         var dbUser = firebase.database().ref().child('users');
         const cName = $('#i_chineseName').val();
         const eName = $('#i_englishName').val();
@@ -111,9 +111,51 @@ $(document).ready(function() {
     });
 });
 
+function loadAllStudentData() {
+    var uid = firebase.auth().currentUser.uid;
+    var urlRef = firebase.database().ref("users");
+    var allStudentData = new Array();
+    urlRef.once("value", function (snapshot) {
+        snapshot.forEach(function (child) {
+            if (child.val().uid != uid)
+            allStudentData.push(new student(child.val().ChineseName,
+                    child.val().EnglishName,
+                    child.val().Department,
+                    child.val().StudentNo,
+                    child.val().CellPhone,
+                    child.val().DateOfBirth,
+                    child.val().PassportNo,
+                    child.val().ARCNo,
+                    child.val().Email, ))
+        });
+        allStudentData.sort(sortByStdNo);
+        console.log(allStudentData)
+    });
+    
+}
+
+function sortByStdNo(a,b) {
+    if (a.StudentNo < b.StudentNo)
+      return -1;
+    else
+      return 1;
+  }
+
+function student(chineseName, englishName, department, studentNo, cellPhone, dateOfBirth, passportNo, arcNo, email) {
+    this.ChineseName = chineseName;
+    this.EnglishName = englishName;
+    this.Department = department;
+    this.StudentNo = studentNo;
+    this.CellPhone = cellPhone;
+    this.DateOfBirth = dateOfBirth;
+    this.PassportNo = passportNo;
+    this.ARCNo = arcNo;
+    this.Email = email;
+}
+
 function loadData() {
     var userId = firebase.auth().currentUser.uid;
-    return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+    return firebase.database().ref('/users/' + userId).once('value').then(function (snapshot) {
         $('#i_chineseName').val(snapshot.val().ChineseName);
         $('#i_englishName').val(snapshot.val().EnglishName);
         $('#i_dept').val(snapshot.val().Department);
