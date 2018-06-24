@@ -378,7 +378,7 @@ header {
     pointer-events: none;
 }
 
-#footer .footer-col-section-title {
+<<<<<<< HEAD #footer .footer-col-section-title {
     font-size: 11px;
     line-height: 1.36364;
     font-weight: 600;
@@ -448,4 +448,21 @@ header {
     top: -3px;
     z-index: 2;
     white-space: nowrap;
+}
+
+#all_student_data .flip {
+    margin: 0px;
+    padding: 5px;
+    background: #E09697;
+    cursor: pointer;
+    font-family: 'Arial';
+}
+
+#all_student_data .panel {
+    margin: 0px;
+    padding: 5px;
+    background: #e5eecc;
+    border: solid 1px #c3c3c3;
+    display: none;
+    font-family: 'Arial';
 }

@@ -19,8 +19,11 @@ $(document).ready(function () {
         if (user) {
             document.getElementById("login_group").style.display = "none";
             document.getElementById("logout_group").style.display = "block"
-            if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry.html")
+            if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry.html"||location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry"){
                 loadData();
+            }
+            if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin" )
+                loadAllStudentData()
         } else {
             document.getElementById("login_group").style.display = "block";
             document.getElementById("logout_group").style.display = "none"
@@ -72,6 +75,7 @@ $(document).ready(function () {
         firebase.auth().signOut().then(function () {}).catch(function (error) {
             console.log(error)
         });
+        location.reload();
     });
     //const auth = firebase.auth();
     //auth.signInWithEmailAndPassword(email, pass);
@@ -109,6 +113,13 @@ $(document).ready(function () {
             uid: user.uid
         })
     });
+    $(document).on("click", ".flip", function (e) {
+        clicked = ($(".flip").index(this))
+        console.log($(".flip").index(this))
+        $(".panel:eq("+clicked+")").slideToggle("slow");
+        $(".xs1:eq("+clicked+")").toggle();
+        $(".xs2:eq("+clicked+")").toggle();
+    });
 });
 
 function loadAllStudentData() {
@@ -130,8 +141,123 @@ function loadAllStudentData() {
         });
         allStudentData.sort(sortByStdNo);
         console.log(allStudentData)
+        for(var i=0;i<allStudentData.length;i++){
+            $("#all_student_data").append(
+                $('<div class="student_data">').append(
+                    $('<div class="flip">').append(
+                        $('<div class="row">').append(
+                            $('<div class="col-sm-4">').append(
+                                $("<h5>", { text: "名字: "+allStudentData[i].ChineseName })
+                            ),
+                            $('<div class="col-sm-4">').append(
+                                $("<h5>", { text: "學號: "+allStudentData[i].StudentNo })
+                            ),
+                            $('<div class="col-sm-4">').append(
+                                $("<h5>", { text: "科系: "+allStudentData[i].Department })
+                            )
+                        )
+                    )
+                )
+            )
+            $("#all_student_data").append(
+                $('<div class="panel">').append(
+                    $('<div class="row">').append(
+                        $('<div class="col-md-6">').append(
+                            $('<div class="row">').append(
+                                $('<div class="col-4">').append(
+                                    $("<p>", { text: "中文姓名:"})
+                                ),
+                                $('<div class="col-8">').append(
+                                    $("<p>", { text:allStudentData[i].ChineseName })
+                                ),
+                            )
+                        ),
+                        $('<div class="col-md-6">').append(
+                            $('<div class="row">').append(
+                                $('<div class="col-4">').append(
+                                    $("<p>", { text: "英文姓名:"})
+                                ),
+                                $('<div class="col-8">').append(
+                                    $("<p>", { text:allStudentData[i].EnglishName })
+                                ),
+                            )
+                        ),
+                        $('<div class="col-md-6">').append(
+                            $('<div class="row">').append(
+                                $('<div class="col-4">').append(
+                                    $("<p>", { text: "系所:"})
+                                ),
+                                $('<div class="col-8">').append(
+                                    $("<p>", { text:allStudentData[i].Department })
+                                ),
+                            )
+                        ),
+                        $('<div class="col-md-6">').append(
+                            $('<div class="row">').append(
+                                $('<div class="col-4">').append(
+                                    $("<p>", { text: "學號:"})
+                                ),
+                                $('<div class="col-8">').append(
+                                    $("<p>", { text:allStudentData[i].StudentNo })
+                                ),
+                            )
+                        ),
+                        $('<div class="col-md-6">').append(
+                            $('<div class="row">').append(
+                                $('<div class="col-4">').append(
+                                    $("<p>", { text: "在臺行動電話:"})
+                                ),
+                                $('<div class="col-8">').append(
+                                    $("<p>", { text:allStudentData[i].CellPhone })
+                                ),
+                            )
+                        ),
+                        $('<div class="col-md-6">').append(
+                            $('<div class="row">').append(
+                                $('<div class="col-4">').append(
+                                    $("<p>", { text: "出生日期(DD/MM/YYYY):"})
+                                ),
+                                $('<div class="col-8">').append(
+                                    $("<p>", { text:allStudentData[i].DateOfBirth })
+                                ),
+                            )
+                        ),
+                        $('<div class="col-md-6">').append(
+                            $('<div class="row">').append(
+                                $('<div class="col-4">').append(
+                                    $("<p>", { text: "護照號碼:"})
+                                ),
+                                $('<div class="col-8">').append(
+                                    $("<p>", { text:allStudentData[i].PassportNo })
+                                ),
+                            )
+                        ),
+                        $('<div class="col-md-6">').append(
+                            $('<div class="row">').append(
+                                $('<div class="col-4">').append(
+                                    $("<p>", { text: "居留證號碼:"})
+                                ),
+                                $('<div class="col-8">').append(
+                                    $("<p>", { text:allStudentData[i].ARCNo })
+                                ),
+                            )
+                        ),
+                        $('<div class="col-md-6">').append(
+                            $('<div class="row">').append(
+                                $('<div class="col-4">').append(
+                                    $("<p>", { text: "電子郵件:"})
+                                ),
+                                $('<div class="col-8">').append(
+                                    $("<p>", { text:allStudentData[i].Email })
+                                ),
+                            )
+                        ),
+
+                    )
+                )
+            )
+        }
     });
-    
 }
 
 function sortByStdNo(a,b) {
@@ -140,7 +266,8 @@ function sortByStdNo(a,b) {
     else
       return 1;
   }
-
+  
+  
 function student(chineseName, englishName, department, studentNo, cellPhone, dateOfBirth, passportNo, arcNo, email) {
     this.ChineseName = chineseName;
     this.EnglishName = englishName;
