@@ -251,7 +251,9 @@ header {
 }
 
 #represent .member .photo img {
-    height: 300px;width:200px; margin: 0 auto;
+    height: 300px;
+    width: 200px;
+    margin: 0 auto;
 }
 
 #represent .member .member_info_icon img {
@@ -304,3 +306,19 @@ header {
     font-size: 14px;
 }
 
+#all_student_data .flip {
+    margin: 0px;
+    padding: 5px;
+    background: #E09697;
+    cursor: pointer;
+    font-family: 'Arial';
+}
+
+#all_student_data .panel {
+    margin: 0px;
+    padding: 5px;
+    background: #e5eecc;
+    border: solid 1px #c3c3c3;
+    display: none;
+    font-family: 'Arial';
+}
