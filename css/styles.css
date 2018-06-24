@@ -300,18 +300,13 @@ header {
 #footer {
     background: #333;
     color: rgb(153, 153, 153);
-    font-size: 11px;
-    line-height: 1.36364;
-    font-weight: 400;
-    letter-spacing: -.008em;
-    font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    min-width: 100%;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
+   
+    width: 100%;
+    padding-top: 20px;
 }
 #footer-title{
     font-size: 20px;
+    margin: 0;
 }
 #footer a{
     font-size: 14px;
@@ -337,7 +332,13 @@ header {
 .footer_map_part{
     margin-top: 15px;
 }
-
+#copyright p {
+    padding: 0;
+    margin: 0;
+}
+#copyright{
+    margin-bottom: 20px;
+}
 #all_student_data .flip {
     margin: 0px;
     padding: 5px;
@@ -345,7 +346,6 @@ header {
     cursor: pointer;
     font-family: 'Arial';
 }
-
 #all_student_data .panel {
     margin: 0px;
     padding: 5px;
