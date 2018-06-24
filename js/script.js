@@ -27,7 +27,6 @@ $(document).ready(function () {
         } else {
             document.getElementById("login_group").style.display = "block";
             document.getElementById("logout_group").style.display = "none"
-            location.reload();
         }
     })
     $(document).on("click", "#signUp-submit", function (e) {
@@ -76,6 +75,7 @@ $(document).ready(function () {
         firebase.auth().signOut().then(function () {}).catch(function (error) {
             console.log(error)
         });
+        location.reload();
     });
     //const auth = firebase.auth();
     //auth.signInWithEmailAndPassword(email, pass);
