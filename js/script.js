@@ -19,14 +19,15 @@ $(document).ready(function () {
         if (user) {
             document.getElementById("login_group").style.display = "none";
             document.getElementById("logout_group").style.display = "block"
-            if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry.html"){
+            if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry.html"||location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry"){
                 loadData();
             }
-            if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin.html")
+            if(location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin" )
                 loadAllStudentData()
         } else {
             document.getElementById("login_group").style.display = "block";
             document.getElementById("logout_group").style.display = "none"
+            location.reload();
         }
     })
     $(document).on("click", "#signUp-submit", function (e) {
