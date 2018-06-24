@@ -294,34 +294,44 @@ header {
 }
 
 #info .info-caption {
-    color: black;
+    color: white;
+}
+
+#info img {
+    max-width: 100%;
+    max-height: 768px;
 }
 
 #footer {
     background: #333;
     color: rgb(153, 153, 153);
-   
     width: 100%;
     padding-top: 20px;
 }
-#footer-title{
+
+#footer-title {
     font-size: 20px;
     margin: 0;
+    text-align: center;
 }
-#footer a{
+
+#footer a {
     font-size: 14px;
     text-decoration: none;
     color: rgb(153, 153, 153);
 }
-#footer a:hover{
+
+#footer a:hover {
     font-size: 14px;
     text-decoration: none;
     color: rgb(255, 255, 255);
 }
-#footer h3{
+
+#footer h3 {
     font-size: 16px;
 }
-#footer hr{ 
+
+#footer hr {
     display: block;
     height: 1px;
     border: 0;
@@ -329,16 +339,24 @@ header {
     margin: 1em 0;
     padding: 0;
 }
-.footer_map_part{
+
+.footer_map_part {
     margin-top: 15px;
 }
+
 #copyright p {
     padding: 0;
     margin: 0;
 }
-#copyright{
-    margin-bottom: 20px;
+
+#copyright {
+    text-align: center;
 }
+
+#copyright p.float-right {
+    padding-bottom: 20px;
+}
+
 #all_student_data .flip {
     margin: 0px;
     padding: 5px;
@@ -346,6 +364,7 @@ header {
     cursor: pointer;
     font-family: 'Arial';
 }
+
 #all_student_data .panel {
     margin: 0px;
     padding: 5px;
