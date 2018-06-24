@@ -251,7 +251,9 @@ header {
 }
 
 #represent .member .photo img {
-    height: 300px;width:200px; margin: 0 auto;
+    height: 300px;
+    width: 200px;
+    margin: 0 auto;
 }
 
 #represent .member .member_info_icon img {
@@ -296,11 +298,154 @@ header {
 }
 
 #footer {
-    position: static;
-    padding: 3em 1em 3em 1em;
     background: #333;
     color: rgb(153, 153, 153);
-    text-align: center;
-    font-size: 14px;
+    font-size: 11px;
+    line-height: 1.36364;
+    font-weight: 400;
+    letter-spacing: -.008em;
+    font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    min-width: 1024px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
 }
 
+#footer *,
+#footer ::before,
+#footer ::after {
+    font-size: 1em;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    text-align: inherit;
+}
+
+#footer .footer-content {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 20px 22px;
+}
+
+#footer .footer-title {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+    clip-path: inset(0px 0px 99.9% 99.9%);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    border: 0;
+}
+
+#footer .footer-nav {
+    padding-top: 40px;
+    font-size: 11px;
+    line-height: 1.36364;
+    font-weight: 400;
+    letter-spacing: -.008em;
+    font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    position: relative;
+    z-index: 1;
+    padding-top: 20px;
+}
+
+#footer .footer-nav.with-4-col .footer-col {
+    width: 25%;
+}
+
+#footer .footer-col {
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    float: left;
+    min-height: 2px;
+}
+
+#footer .footer-col-section {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    float: left;
+    min-height: 2px;
+    pointer-events: none;
+}
+
+#footer .footer-col-section-title {
+    font-size: 11px;
+    line-height: 1.36364;
+    font-weight: 600;
+    margin-bottom: .8em;
+}
+
+#footer .footer-col-section-list {
+    margin-right: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+#footer .footer-col-section-item {
+    display: block;
+    pointer-events: auto;
+    margin-bottom: .8em;
+}
+
+#footer a {
+    color: rgb(153, 153, 153);
+    text-decoration: none;
+}
+
+#footer .footer-info {
+    padding: 17px 0 21px;
+}
+
+#footer .footer-nav+.footer-info {
+    padding-top: 165px;
+    border-top: none;
+}
+
+#footer .footer-nav+.footer-info .footer-line {
+    margin-bottom: 7px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+#footer,
+#footer::before,
+#footer::after,
+#footer * {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    pointer-events: auto;
+    letter-spacing: normal;
+}
+
+#footer .footer-info .footer-legal {
+    position: relative;
+    top: -3px;
+    z-index: 1;
+}
+
+#footer .footer-legal-copyright {
+    max-height: 9999px;
+    margin-right: 30px;
+    float: left;
+    margin-top: 5px;
+}
+
+#footer .footer-author {
+    float: right;
+    margin-top: 5px;
+    position: relative;
+    top: -3px;
+    z-index: 2;
+    white-space: nowrap;
+}
