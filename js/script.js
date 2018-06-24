@@ -12,9 +12,6 @@ $(document).ready(function () {
         messagingSenderId: "462597688502"
     };
     firebase.initializeApp(config);
-    //var dbRef = firebase.database().ref.child('object');
-    //var ref = new Firebase("https://webfinalproject-9ddcc.firebaseio.com/");
-    //console.log(dbRef);
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             document.getElementById("login_group").style.display = "none";
@@ -77,10 +74,6 @@ $(document).ready(function () {
         });
         location.reload();
     });
-    //const auth = firebase.auth();
-    //auth.signInWithEmailAndPassword(email, pass);
-    //auth.createUserWithEmailAndPassword(email, pass)
-    //auth.onAuthStateChanged(firebaseUser => {});
     $(document).on("click", "#nav-icon", function () {
         $("#nav-icon").toggleClass('open');
 
@@ -261,7 +254,7 @@ function loadAllStudentData() {
 }
 
 function sortByStdNo(a,b) {
-    if (a.StudentNo < b.StudentNo)
+    if (parseInt(a.StudentNo) < parseInt(b.StudentNo))
       return -1;
     else
       return 1;
