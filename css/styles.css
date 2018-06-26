@@ -53,11 +53,17 @@ html {
     #scroll_text {
         display: none;
     }
+    header a h1 {
+        font-size: 48px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
     #framework img {
         width: 150%;
+    }
+    header a h1 {
+        font-size: 24px;
     }
 }
 
@@ -192,7 +198,6 @@ nav {
 }
 
 header a h1 {
-    font-size: 48px;
     color: aliceblue;
     text-decoration: none;
 }
@@ -272,7 +277,6 @@ header {
     background-attachment: fixed;
     color: #000000;
     text-align: center;
-    padding: 20em 0 20em 0;
     -webkit-animation: fadein 3s;
     /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 3s;
@@ -280,17 +284,20 @@ header {
     -ms-animation: fadein 3s;
     /* Internet Explorer */
     animation: fadein 3s;
+    color: #FFF;
+    font-weight: 300;
+}
+
+#head .head-intro {
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
 
 #info {
     background: #1D84B5;
     text-align: center;
-    padding: 10em 0 10em 0;
     margin-bottom: 0;
-}
-
-#info .info-title {
-    font-size: 48px;
+    padding: 2.5em 0 4.5em 0;
 }
 
 #info .info-caption {
@@ -316,7 +323,6 @@ header {
 }
 
 #footer a {
-    font-size: 14px;
     text-decoration: none;
     color: rgb(153, 153, 153);
 }
@@ -325,10 +331,6 @@ header {
     font-size: 14px;
     text-decoration: none;
     color: rgb(255, 255, 255);
-}
-
-#footer h3 {
-    font-size: 16px;
 }
 
 #footer hr {
@@ -355,6 +357,60 @@ header {
 
 #copyright p.float-right {
     padding-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+    #head {
+        padding: 20em 0 20em 0;
+    }
+    #head .head-title {
+        font-size: 48px;
+    }
+    #head .head-intro {
+        font-size: 28px;
+    }
+    #info .info-title {
+        font-size: 48px;
+    }
+    #footer h3 {
+        font-size: 16px;
+    }
+    #footer a {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #head {
+        padding: 10em 0 10em 0;
+    }
+    #head .head-title {
+        font-size: 24px;
+    }
+    #head .head-intro {
+        font-size: 14px;
+    }
+    #info .info-title {
+        font-size: 24px;
+    }
+    #info .info-caption h3 {
+        font-size: 20px;
+    }
+    #info .info-caption p {
+        font-size: 16px;
+    }
+    #footer {
+        padding: 5px 16px;
+    }
+    #footer h3 {
+        font-size: 14px;
+    }
+    #footer a {
+        font-size: 11px;
+    }
+    #copyright {
+        font-size: 10px;
+    }
 }
 
 #all_student_data .flip {
