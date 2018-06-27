@@ -17,13 +17,12 @@ $(document).ready(function () {
     firebase.initializeApp(config);
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            document.getElementById("header_user_email").empty()
             document.getElementById("header_user_email").append(firebase.auth().currentUser.email)
             document.getElementById("login_group").style.display = "none";
             document.getElementById("logout_group").style.display = "block"
             if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry") {
                 document.getElementById("login_warning").style.display="none";
-                document.getElementById("dateEntry").style.display="block";
+                document.getElementById("dataEntry").style.display="block";
                 loadData();
             }
             if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin") {
@@ -36,7 +35,7 @@ $(document).ready(function () {
             }
             if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry") {
                 document.getElementById("login_warning").style.display="block";
-                document.getElementById("dateEntry").style.display="none";
+                document.getElementById("dataEntry").style.display="none";
             }
             document.getElementById("login_group").style.display = "block";
             document.getElementById("logout_group").style.display = "none"
@@ -216,11 +215,11 @@ $(document).ready(function () {
                     $('<div class="row">').append(
                         $('<div class="col-4">').append(
                             $("<p>", {
-                                text: "出生日期(DD/MM/YYYY):"
+                                text: "出生日期:"
                             })
                         ),
                         $('<div class="col-8">').append(
-                            $("<input type='text' id='i_dob'>")
+                            $("<input type='text' id='i_dob' placeholder='DD/MM/YYYY'>")
                         ),
                     )
                 ),
@@ -278,7 +277,6 @@ $(document).ready(function () {
         //$(".xs2:eq("+clicked+")").toggle();
     });
 });
-
 
 function loadAllStudentData() {
     var uid = firebase.auth().currentUser.uid;
