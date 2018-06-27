@@ -278,6 +278,35 @@ $(document).ready(function () {
         //$(".xs1:eq("+clicked+")").toggle();
         //$(".xs2:eq("+clicked+")").toggle();
     });
+    $(document).on("click", ".apply_submit", function (e) {
+        clicked = ($(".apply_submit").index(this))
+        var events_name =($(".event_title:eq(" + clicked + ")")[0].children[1].innerText);
+        console.log(events_name)
+        var dbUser = firebase.database().ref().child('events').child(events_name);
+        const user = firebase.auth().currentUser;
+        const dbUserid = dbUser.child(user.uid);
+        dbUserid.set({
+            uid: user.uid
+        })
+        var applyElements = document.querySelectorAll(".apply_btn");
+        var c_applyElements = document.querySelectorAll(".cancel_apply_submit");
+        applyElements[clicked].style.display="none";
+        c_applyElements[clicked].style.display="block";
+
+    });
+    $(document).on("click", ".cancel_apply_submit", function (e) {
+        clicked = ($(".cancel_apply_submit").index(this))
+        var events_name =($(".event_title:eq(" + clicked + ")")[0].children[1].innerText);
+        console.log(events_name)
+        var dbUser = firebase.database().ref().child('events').child(events_name);
+        const user = firebase.auth().currentUser;
+        const dbUserid = dbUser.child(user.uid);
+        dbUserid.remove()
+        var applyElements = document.querySelectorAll(".apply_btn");
+        var c_applyElements = document.querySelectorAll(".cancel_apply_submit");
+        applyElements[clicked].style.display="block";
+        c_applyElements[clicked].style.display="none";
+    });
 });
 
 function loadAllStudentData() {
