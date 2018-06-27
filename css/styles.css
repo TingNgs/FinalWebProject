@@ -532,8 +532,8 @@ header {
     border: 1px solid black;
 }
 
-.traffic td ul {
-    padding-left: 30px;
+.ps {
+    margin-left: auto;
 }
 
 #all_student_data {
