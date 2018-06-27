@@ -263,8 +263,6 @@ header {
 
 #represent .member {
     margin-top: 20px;
-    border: 1px solid rgb(119, 162, 219);
-    border-radius: 3px;
 }
 
 #represent .member_info {
@@ -531,13 +529,12 @@ header {
     font-family: 'Arial';
 }
 
-.traffic,
-.traffic td {
-    border: 1px solid black;
+#all_student_data {
+    display: none;
 }
 
-.ps {
-    margin-left: auto;
+#problem .question .panel .row {
+    margin-top: 15px;
 }
 
 #all_student_data {
@@ -568,4 +565,48 @@ header {
 }
 #new_event .cancel_apply_btn{
     display: block
+}
+#checklist {
+    background-color: #c3c3c3;
+    padding: 20px 0;
+}
+
+#checklist .container-fluid {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 10px 0;
+}
+
+#checklist .check-list .row {
+    margin: 10px 0;
+}
+
+#checklist .check-list .row div {
+    font-size: 20px;
+}
+
+#checklist .check-list input {
+    margin-right: 10px;
+}
+
+#represent {
+    background-color: #c3c3c3;
+    padding: 20px 0;
+}
+
+#represent .container-fluid {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#framework {
+    background-color: #c3c3c3;
+    padding: 20px 0;
+}
+
+#framework .container-fluid {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
 }
