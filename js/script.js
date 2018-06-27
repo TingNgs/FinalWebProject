@@ -337,6 +337,18 @@ $(document).ready(function () {
         applyElements[clicked].style.display = "block";
         c_applyElements[clicked].style.display = "none";
     });
+
+    $(document).on("click", ".event_delete_btn", function (e) {
+        clicked = ($(".event_delete_btn").index(this))
+        var eventName = ($(".event_std:eq(" + clicked + ")")[0].parentElement.parentElement.children[0].innerText);
+        var eventUID = ($(".event_std:eq(" + clicked + ")")[0]).children[4].innerText;
+        var dbUser = firebase.database().ref().child('events').child(eventName).child("list").child(eventUID);
+        console.log(eventName)
+        console.log(eventUID)
+        dbUser.remove();
+        loadEventData();
+    });
+    
 });
 
 function loadAllStudentData() {
@@ -590,13 +602,15 @@ function loadEventData() {
     applyNum = 0;
     var urlRef = firebase.database().ref("events");
     eventData = [];
+    $("#data_fuild").empty();
     urlRef.once("value", function (snapshot) {
         snapshot.forEach(function (child) {
-            eventData.push(child.key);
+            //eventData.push(child.key);
             var eventRef = firebase.database().ref("events").child(child.key).child("list");
             console.log($("#data_fuild"))
             $("#data_fuild").append(
                 $('<div class="student_data">').append(
+                    $('<div class="hidden_eventKey">').append(child.key),
                     $('<div class="flip">').append(
                         $('<div class="row">').append(
                             $('<div class="col-12">').append(
@@ -613,8 +627,8 @@ function loadEventData() {
                 snapshot.forEach(function (child) {
                     console.log(child.val().name)
                     $(".panel:eq(" + applyNum + ")").append(
-                        $('<div class="row">').append(
-                            $('<div class="col-md-4">').append(
+                        $('<div class="row event_std">').append(
+                            $('<div class="col-md-6">').append(
                                 $('<div class="row">').append(
                                     $('<div class="col-4">').append(
                                         $("<p>", {
@@ -628,7 +642,7 @@ function loadEventData() {
                                     ),
                                 )
                             ),
-                            $('<div class="col-md-4">').append(
+                            $('<div class="col-md-6">').append(
                                 $('<div class="row">').append(
                                     $('<div class="col-4">').append(
                                         $("<p>", {
@@ -642,7 +656,7 @@ function loadEventData() {
                                     ),
                                 )
                             ),
-                            $('<div class="col-md-4">').append(
+                            $('<div class="col-md-6">').append(
                                 $('<div class="row">').append(
                                     $('<div class="col-4">').append(
                                         $("<p>", {
@@ -655,6 +669,12 @@ function loadEventData() {
                                         })
                                     ),
                                 )
+                            ),
+                            $('<input type="button" name="delete_Data"class="btn btn-info event_delete_btn" value="Delete">'),
+                            $('<div class="hidden_uid">').append(
+                                $("<p>", {
+                                    text: child.val().uid
+                                })
                             )
                         ),
                         $('<hr>')

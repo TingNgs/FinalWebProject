@@ -677,3 +677,9 @@ header {
 #adminEvent .panel p{
     margin:10px 0;
 }
+#adminEvent .hidden_uid{
+    display: none;
+}
+#adminEvent .hidden_eventKey{
+    display: none;
+}
