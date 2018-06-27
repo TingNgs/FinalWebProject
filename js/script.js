@@ -3,8 +3,11 @@ $(function () {
     $('header').load('header.html');
 });
 
-var edt_uid,applyNum;
-var apply_exits = [0,0,0];
+var edt_uid, applyNum;
+var apply_exits = [];
+var eventData = [];
+var apply_std_no, apply_name, apply_dept;
+
 $(document).ready(function () {
     var config = {
         apiKey: "AIzaSyAgTbBfhw6qEJ_2UOMRKFDqSqX_oMW_0kc",
@@ -30,14 +33,24 @@ $(document).ready(function () {
                 document.getElementById("all_student_data").style.display = "block";
                 loadAllStudentData()
             }
+            if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "adminEvent.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "adminEvent") {
+                loadEventData()
+                document.getElementById("admin_warning").style.display = "none";
+                document.getElementById("all_student_data").style.display = "block";
+            }
             if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "newEvent.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "newEvent") {
                 var loginElements = document.querySelectorAll(".login_warning");
                 for (var i = 0; i < loginElements.length; i++)
                     loginElements[i].style.display = "none";
+                loadApplyData()
                 loadApplyState();
             }
         } else {
             if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin") {
+                document.getElementById("admin_warning").style.display = "block";
+                document.getElementById("all_student_data").style.display = "none";
+            }
+            if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "adminEvent.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "adminEvent") {
                 document.getElementById("admin_warning").style.display = "block";
                 document.getElementById("all_student_data").style.display = "none";
             }
@@ -290,26 +303,32 @@ $(document).ready(function () {
         //$(".xs2:eq("+clicked+")").toggle();
     });
     $(document).on("click", ".apply_submit", function (e) {
+        loadApplyData()
         clicked = ($(".apply_submit").index(this))
         var events_name = ($(".event_title:eq(" + clicked + ")")[0].children[1].innerText);
         console.log(events_name)
         var dbUser = firebase.database().ref().child('events').child(events_name);
         const user = firebase.auth().currentUser;
-        const dbUserid = dbUser.child(user.uid);
+        const dbUserid = dbUser.child("list").child(user.uid);
         dbUserid.set({
-            uid: user.uid
+            uid: user.uid,
+            name: apply_name,
+            std_no: apply_std_no,
+            dept: apply_dept
+        })
+        dbUser.child("eventName").set({
+            eventName: ($(".event_title:eq(" + clicked + ")")[0].children[0].innerText)
         })
         var applyElements = document.querySelectorAll(".apply_btn");
         var c_applyElements = document.querySelectorAll(".cancel_apply_btn");
         applyElements[clicked].style.display = "none";
         c_applyElements[clicked].style.display = "block";
-
     });
     $(document).on("click", ".cancel_apply_submit", function (e) {
         clicked = ($(".cancel_apply_submit").index(this))
         var events_name = ($(".event_title:eq(" + clicked + ")")[0].children[1].innerText);
         console.log(events_name)
-        var dbUser = firebase.database().ref().child('events').child(events_name);
+        var dbUser = firebase.database().ref().child('events').child(events_name).child("list");
         const user = firebase.auth().currentUser;
         const dbUserid = dbUser.child(user.uid);
         dbUserid.remove()
@@ -544,26 +563,114 @@ function loadData() {
 
 function loadApplyState() {
     var event_titleElements = document.querySelectorAll(".event_title");
-    console.log(apply_exits,apply_exits.length)
+    console.log(apply_exits, apply_exits.length)
     apply_exits = [];
     for (var i = 0; i < event_titleElements.length; i++) {
         var event_name = event_titleElements[i].children[1].innerHTML;
         console.log(event_name)
         const userUid = firebase.auth().currentUser.uid;
-        var dbUser = firebase.database().ref().child('events').child(event_name);
+        var dbUser = firebase.database().ref().child('events').child(event_name).child("list");
         console.log(dbUser)
-        dbUser.child(userUid).once('value', function(snapshot) {
+        dbUser.child(userUid).once('value', function (snapshot) {
             var applyElements = document.querySelectorAll(".apply_btn");
             var c_applyElements = document.querySelectorAll(".cancel_apply_btn");
             if (snapshot.exists()) {
                 apply_exits.push(1)
-                c_applyElements[apply_exits.length-1].style.display = "block";
-            }
-            else{
+                c_applyElements[apply_exits.length - 1].style.display = "block";
+            } else {
                 apply_exits.push(0)
-                applyElements[apply_exits.length-1].style.display = "block";
+                applyElements[apply_exits.length - 1].style.display = "block";
             }
-            
-          });
+
+        });
     }
+}
+
+function loadEventData() {
+    applyNum = 0;
+    var urlRef = firebase.database().ref("events");
+    eventData = [];
+    urlRef.once("value", function (snapshot) {
+        snapshot.forEach(function (child) {
+            eventData.push(child.key);
+            var eventRef = firebase.database().ref("events").child(child.key).child("list");
+            console.log($("#data_fuild"))
+            $("#data_fuild").append(
+                $('<div class="student_data">').append(
+                    $('<div class="flip">').append(
+                        $('<div class="row">').append(
+                            $('<div class="col-12">').append(
+                                $("<h5>", {
+                                    text: "活動: " + child.child("eventName").val().eventName
+                                })
+                            ),
+                        )
+                    ),
+                    $('<div class="panel">')
+                )
+            )
+            eventRef.once("value", function (snapshot) {
+                snapshot.forEach(function (child) {
+                    console.log(child.val().name)
+                    $(".panel:eq(" + applyNum + ")").append(
+                        $('<div class="row">').append(
+                            $('<div class="col-md-4">').append(
+                                $('<div class="row">').append(
+                                    $('<div class="col-4">').append(
+                                        $("<p>", {
+                                            text: "中文姓名:"
+                                        })
+                                    ),
+                                    $('<div class="col-8">').append(
+                                        $("<p>", {
+                                            text: child.val().name
+                                        })
+                                    ),
+                                )
+                            ),
+                            $('<div class="col-md-4">').append(
+                                $('<div class="row">').append(
+                                    $('<div class="col-4">').append(
+                                        $("<p>", {
+                                            text: "學號:"
+                                        })
+                                    ),
+                                    $('<div class="col-8">').append(
+                                        $("<p>", {
+                                            text: child.val().std_no
+                                        })
+                                    ),
+                                )
+                            ),
+                            $('<div class="col-md-4">').append(
+                                $('<div class="row">').append(
+                                    $('<div class="col-4">').append(
+                                        $("<p>", {
+                                            text: "系所:"
+                                        })
+                                    ),
+                                    $('<div class="col-8">').append(
+                                        $("<p>", {
+                                            text: child.val().dept
+                                        })
+                                    ),
+                                )
+                            )
+
+                        )
+                    )
+                })
+                applyNum++;
+            })
+        });
+    });
+}
+
+function loadApplyData() {
+    var userId = firebase.auth().currentUser.uid;
+    firebase.database().ref('/users/' + userId).once('value').then(function (snapshot) {
+        apply_name = snapshot.val().ChineseName;
+        apply_dept = snapshot.val().Department;
+        apply_std_no = snapshot.val().StudentNo;
+    });
 }

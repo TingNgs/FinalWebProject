@@ -545,7 +545,7 @@ header {
 }
 
 .event_box img {
-    max-width: 100%;
+    width: 100%;
 }
 
 .event_detail {
@@ -555,7 +555,7 @@ header {
 }
 @media only screen and (max-width: 1200px) {
     .event_detail{
-        margin-top: 15px;
+        margin: 15px 0px;
     }
 }
 
