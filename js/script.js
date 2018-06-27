@@ -322,9 +322,7 @@ function loadAllStudentData() {
                             )
                         )
                     )
-                )
-            )
-            $("#data_fuild").append(
+                ),
                 $('<div class="panel">').append(
                     $('<div class="row">').append(
                         $('<div class="col-md-6">').append(

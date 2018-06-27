@@ -235,11 +235,11 @@ header {
 
 #framework p {
     font-size: 28px;
-    color: #1D84B5;
+    color: rgb(24, 85, 114);
 }
 
 #framework h1 {
-    color: #1D84B5;
+    color: rgb(24, 85, 114);
 }
 
 @media only screen and (min-width: 450px) {
@@ -309,6 +309,7 @@ header {
     /* Internet Explorer */
     animation: fadein 3s;
     color: #FFF;
+    text-shadow: black 0.01em 0.01em 0.02em;
     font-weight: 300;
 }
 
@@ -318,7 +319,7 @@ header {
 }
 
 #info {
-    background: rgb(14, 57, 77);
+    background: #222222;
     text-align: center;
     margin-bottom: 0;
     padding: 2.5em 0 4.5em 0;
@@ -330,6 +331,8 @@ header {
 
 #info .info-caption {
     color: white;
+    font-weight: 600;
+    text-shadow: black 0.1em 0.1em 0.2em;
 }
 
 #info img {
