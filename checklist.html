@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <link rel="icon" href="./img/NTUTlogo.png">
+    <title>國立臺北科技大學香港僑生資訊網</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+</head>
+
+<body>
+    <header></header>
+    <div id="checklist">
+        <div class="container-fluid">
+            <div class="check-list">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1>Checklist</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3>MUST</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><input type="checkbox" id="card" name="card" value="card">銀聯提款卡[1]</div>
+                    <div class="col-sm-6"><input type="checkbox" id="hkIDCard" name="hkIDCard" value="hkIDCard">香港身份證</div>
+                    <div class="col-sm-6"><input type="checkbox" id="studyRecord" name="studyRecord" value="studyRecord">學歷證明正本[2]</div>
+                    <div class="col-sm-6"><input type="checkbox" id="studyRecordCopy" name="studyRecordCopy" value="studyRecordCopy">學歷證明副本</div>
+                    <div class="col-sm-6"><input type="checkbox" id="studyPermit" name="studyPermit" value="studyPermit">台灣單次入出境證正本</div>
+                    <div class="col-sm-6"><input type="checkbox" id="studyPermitCopy" name="studyPermitCopy" value="studyPermitCopy">台灣單次入出境證副本</div>
+                    <div class="col-sm-6"><input type="checkbox" id="passport" name="passport" value="passport">護照[3]</div>
+                    <div class="col-sm-6"><input type="checkbox" id="passportCopy" name="passportCopy" value="passportCopy">護照副本</div>
+                    <div class="col-sm-6"><input type="checkbox" id="medic" name="medic" value="medic">平安藥[4]</div>
+                    <div class="col-sm-6"><input type="checkbox" id="photo" name="photo" value="photo">2 吋相片兩打</div>
+                    <div class="col-sm-6"><input type="checkbox" id="needle" name="needle" value="needle">針簿[5]</div>
+                    <div class="col-sm-6"><input type="checkbox" id="stamp" name="stamp" value="stamp">印章</div>
+                    <div class="col-sm-6"><input type="checkbox" id="goodGuysRecord" name="goodGuysRecord" value="goodGuysRecord">良民證</div>
+                    <div class="col-sm-6"><input type="checkbox" id="money" name="money" value="money">少量台幣</div>
+                    <div class="col-sm-6"><input type="checkbox" id="offerLetter" name="offerLetter" value="offerLetter">分發書</div>
+                    <div class="col-sm-6"><input type="checkbox" id="trasformer" name="trasformer" value="trasformer">多個三腳轉兩腳的插頭轉換器</div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3>RECOMMEND</h3>
+                    </div>
+                    <div class="col-sm-6"><input type="checkbox" id="poorRecord" name="poorRecord" value="poorRecord">清寒證明</div>
+                    <div class="col-sm-6"><input type="checkbox" id="bedcase" name="bedcase" value="bedcase">床單</div>
+                    <div class="col-sm-6"><input type="checkbox" id="pillowCase" name="pillowCase" value="pillowCase">梳頭套</div>
+                    <div class="col-sm-6"><input type="checkbox" id="extension" name="extension" value="extension">延長線(拖板)</div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-12">
+                        <h3>NOT</h3>
+                    </div>
+                    <div class="col-12">風筒</div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">備註</div>
+                    <div class="col-12">
+                        <ol class="mx-4">
+                            <li>請先在香港的ATM櫃員機開啟海外提款功能。</li>
+                            <li>畢業證書及申請本校時用過的成績表等。</li>
+                            <li>必須為特區/BNO護照，若持有其他護照，請在辦理入台證時申報。</li>
+                            <li>傷風感冒、退燒、胃藥等。</li>
+                            <li>作麻疹及德國麻疹預防接種證明。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="all_student_data" class="container-fluid"></div>
+    <script src=" https://code.jquery.com/jquery-3.3.1.min.js " integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin=" anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js " integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js " integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T " crossorigin="anonymous "></script>
+    <script src="js/script.js "></script>
+    <footer></footer>
+</body>
+
+</html>
