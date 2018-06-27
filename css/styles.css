@@ -327,6 +327,7 @@ header {
 
 #info .info-title {
     color: white;
+    margin-bottom: 10px;
 }
 
 #info .info-caption {
@@ -447,7 +448,7 @@ header {
 #all_student_data .flip {
     margin: 0px;
     padding: 5px;
-    background: rgb(101, 115, 151);
+    background: rgb(116, 134, 179);
     cursor: pointer;
     font-family: 'Arial';
     border-bottom: rgb(246, 246, 246) 2px solid;
@@ -541,4 +542,30 @@ header {
 
 #all_student_data {
     display: none;
+}
+.event_box{
+    margin: 20px 0;
+    border: #2E4057 2px solid;
+    border-radius: 5px;
+}
+.event_box img{
+    max-width: 100%;
+}
+.event_detail{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.row.reverse_row{flex-direction: row-reverse;}
+#new_event input{
+    width: 120px;;
+}
+.event_title p{
+    display: none;
+}
+#new_event .apply_btn{
+    display: block
+}
+#new_event .cancel_apply_btn{
+    display: block
 }
