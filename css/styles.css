@@ -456,8 +456,25 @@ header {
     display: none;
     margin: 200px auto;
 }
-#dateEntry{
+#dataEntry{
     display: none;
+    background-color: #c3c3c3;
+}
+#dataEntry .data_col .row p{
+    font-size: 20px;
+    margin-top: 10px;
+}
+#dataEntry  .row{
+    width:98%;
+    margin:0 auto;
+    background-color: rgb(255, 255, 255);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#dataEntry .row input{
+    width: 90%;
+    margin-top: 10px;
+    font-size: 20px;
 }
 #all_student_data input{
     margin-left: 15px;
