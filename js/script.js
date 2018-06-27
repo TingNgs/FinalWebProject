@@ -29,11 +29,6 @@ $(document).ready(function () {
     $(document).on("click", "#signUp-submit", function (e) {
         const email = $('#email').val();
         const pass = $('#password').val();
-        //const auth = firebase.auth();
-        //const promise = firebase.auth().createUserWithEmailAndPassword(email, pass);
-        //promise.catch(function (e) {
-        //	console.log(e.message);
-        //});
         firebase.auth().createUserWithEmailAndPassword(email, pass)
             .catch(function (error) {
                 // Handle Errors here.
@@ -50,11 +45,7 @@ $(document).ready(function () {
     $(document).on("click", "#login-submit", function (e) {
         const email = $('#email').val();
         const pass = $('#password').val();
-        //const auth = firebase.auth();
-        //const promise = firebase.auth().createUserWithEmailAndPassword(email, pass);
-        //promise.catch(function (e) {
-        //	console.log(e.message);
-        //});
+
         firebase.auth().signInWithEmailAndPassword(email, pass)
             .catch(function (error) {
                 // Handle Errors here.
