@@ -225,9 +225,6 @@ header {
     color: aliceblue;
 }
 
-#framework {
-    margin-top: 20px;
-}
 
 #framework_img {
     overflow-x: auto;
@@ -255,10 +252,6 @@ header {
     #framework p {
         font-size: 18px;
     }
-}
-
-#represent {
-    margin-top: 20px;
 }
 
 #represent .member {
@@ -561,11 +554,16 @@ header {
     display: none;
 }
 #new_event .apply_btn{
-    display: block
+    display: none
 }
 #new_event .cancel_apply_btn{
-    display: block
+    display: none
 }
+#new_event .login_warning{
+    display: none;
+    color: #e72a2a;
+}
+
 #checklist {
     background-color: #c3c3c3;
     padding: 20px 0;
