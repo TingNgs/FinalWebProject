@@ -27,11 +27,13 @@ $(document).ready(function () {
             }
             if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin") {
                 document.getElementById("admin_warning").style.display="none";
+                document.getElementById("all_student_data").style.display="block";
                 loadAllStudentData()
             }
         } else {
             if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin") {
                 document.getElementById("admin_warning").style.display="block";
+                document.getElementById("all_student_data").style.display="none";
             }
             if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry") {
                 document.getElementById("login_warning").style.display="block";
@@ -259,7 +261,7 @@ $(document).ready(function () {
                         ),
                     )
                 ),
-                $("<input type='button' name='edit_Data' tabindex='4' class='btn btn-success save_edt_btn' value='Save'>"),
+                $("<input type='button' name='edit_Data' tabindex='4' class='btn btn-info save_edt_btn' value='Save'>"),
             ),
         );
         return firebase.database().ref('/users/' + edt_uid).once('value').then(function (snapshot) {
@@ -297,9 +299,9 @@ function loadAllStudentData() {
                     child.val().uid))
         })
         allStudentData.sort(sortByStdNo)
-        $("#all_student_data").empty()
+        $("#data_fuild").empty()
         for (var i = 0; i < allStudentData.length; i++) {
-            $("#all_student_data").append(
+            $("#data_fuild").append(
                 $('<div class="student_data">').append(
                     $('<div class="flip">').append(
                         $('<div class="row">').append(
@@ -322,7 +324,7 @@ function loadAllStudentData() {
                     )
                 )
             )
-            $("#all_student_data").append(
+            $("#data_fuild").append(
                 $('<div class="panel">').append(
                     $('<div class="row">').append(
                         $('<div class="col-md-6">').append(
@@ -451,7 +453,7 @@ function loadAllStudentData() {
                                 ),
                             )
                         ),
-                        $('<input type="button" name="edit_Data"class="btn btn-success edt_btn" value="Edit">'),
+                        $('<input type="button" name="edit_Data"class="btn btn-info edt_btn" value="Edit">'),
                         $("<p class='hide'>").val(allStudentData[i].uid),
                     )
                 )
@@ -460,6 +462,7 @@ function loadAllStudentData() {
     },function(error) {
         // The Promise was rejected.
         document.getElementById("admin_warning").style.display="block";
+        document.getElementById("all_student_data").style.display="none";
       }
 
 )
