@@ -542,3 +542,7 @@ header {
 #all_student_data {
     display: none;
 }
+
+#problem .question .panel .row {
+    margin-top: 15px;
+}
