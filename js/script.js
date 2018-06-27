@@ -300,7 +300,7 @@ $(document).ready(function () {
             uid: user.uid
         })
         var applyElements = document.querySelectorAll(".apply_btn");
-        var c_applyElements = document.querySelectorAll(".cancel_apply_submit");
+        var c_applyElements = document.querySelectorAll(".cancel_apply_btn");
         applyElements[clicked].style.display = "none";
         c_applyElements[clicked].style.display = "block";
 
@@ -314,7 +314,7 @@ $(document).ready(function () {
         const dbUserid = dbUser.child(user.uid);
         dbUserid.remove()
         var applyElements = document.querySelectorAll(".apply_btn");
-        var c_applyElements = document.querySelectorAll(".cancel_apply_submit");
+        var c_applyElements = document.querySelectorAll(".cancel_apply_btn");
         applyElements[clicked].style.display = "block";
         c_applyElements[clicked].style.display = "none";
     });
@@ -544,8 +544,6 @@ function loadData() {
 
 function loadApplyState() {
     var event_titleElements = document.querySelectorAll(".event_title");
-    var applyElements = document.querySelectorAll(".apply_btn");
-    var c_applyElements = document.querySelectorAll(".cancel_apply_submit");
     console.log(apply_exits,apply_exits.length)
     apply_exits = [];
     for (var i = 0; i < event_titleElements.length; i++) {
@@ -555,11 +553,17 @@ function loadApplyState() {
         var dbUser = firebase.database().ref().child('events').child(event_name);
         console.log(dbUser)
         dbUser.child(userUid).once('value', function(snapshot) {
+            var applyElements = document.querySelectorAll(".apply_btn");
+            var c_applyElements = document.querySelectorAll(".cancel_apply_btn");
             if (snapshot.exists()) {
                 apply_exits.push(1)
+                c_applyElements[apply_exits.length-1].style.display = "block";
             }
-            else{apply_exits.push(0)}
-            console.log("end")
+            else{
+                apply_exits.push(0)
+                applyElements[apply_exits.length-1].style.display = "block";
+            }
+            
           });
     }
 }
