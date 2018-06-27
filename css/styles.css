@@ -218,7 +218,7 @@ header .nav-link:hover {
 
 header {
     padding: 20px 10px;
-    background-color: #1D84B5;
+    background-color: rgb(62, 99, 122);
     color: aliceblue;
 }
 
@@ -312,12 +312,14 @@ header {
 }
 
 #info {
-    background: #1D84B5;
+    background: rgb(14, 57, 77);
     text-align: center;
     margin-bottom: 0;
     padding: 2.5em 0 4.5em 0;
 }
-
+#info .info-title{
+    color: white;
+}
 #info .info-caption {
     color: white;
 }
@@ -434,16 +436,17 @@ header {
 #all_student_data .flip {
     margin: 0px;
     padding: 5px;
-    background: rgb(117, 150, 240);
+    background: rgb(101, 115, 151);
     cursor: pointer;
     font-family: 'Arial';
     border-bottom: rgb(246, 246, 246) 2px solid;
+    color: rgb(0, 0, 0);
 }
 
 #all_student_data .panel {
     margin: 0px;
     padding: 5px;
-    background: #e5eecc;
+    background: #c5c5c5;
     border: solid 1px #c3c3c3;
     display: none;
     font-family: 'Arial';
@@ -507,4 +510,8 @@ header {
     border: solid 1px #c3c3c3;
     display: none;
     font-family: 'Arial';
+}
+
+#all_student_data{
+    display: none;
 }
