@@ -114,8 +114,8 @@ $(document).ready(function () {
     $(document).on("click", ".flip", function (e) {
         clicked = ($(".flip").index(this))
         $(".panel:eq(" + clicked + ")").slideToggle("slow");
-        $(".xs1:eq(" + clicked + ")").toggle();
-        $(".xs2:eq(" + clicked + ")").toggle();
+        //$(".xs1:eq(" + clicked + ")").toggle();
+        //$(".xs2:eq(" + clicked + ")").toggle();
     });
     $(document).on("click", ".save_edt_btn", function (e) {
         clicked = ($(".flip").index(this))
