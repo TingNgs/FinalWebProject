@@ -540,32 +540,44 @@ header {
 #all_student_data {
     display: none;
 }
-.event_box{
+
+.event_box {
     margin: 20px 0;
     border: #2E4057 2px solid;
     border-radius: 5px;
 }
-.event_box img{
+
+.event_box img {
     max-width: 100%;
 }
-.event_detail{
+
+.event_detail {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.row.reverse_row{flex-direction: row-reverse;}
-#new_event input{
-    width: 120px;;
+
+.row.reverse_row {
+    flex-direction: row-reverse;
 }
-.event_title p{
+
+#new_event input {
+    width: 120px;
+    ;
+}
+
+.event_title p {
     display: none;
 }
-#new_event .apply_btn{
+
+#new_event .apply_btn {
     display: block
 }
-#new_event .cancel_apply_btn{
+
+#new_event .cancel_apply_btn {
     display: block
 }
+
 #checklist {
     background-color: #c3c3c3;
     padding: 20px 0;
@@ -609,4 +621,25 @@ header {
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     padding: 20px;
+}
+
+#freshman {
+    background-color: #c3c3c3;
+    padding: 20px 0;
+}
+
+#freshman .container-fluid {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#freshman .timetable .row {
+    margin: 10px 0;
+}
+
+@media only screen and (max-width: 575px) {
+    #timetablehead {
+        display: none;
+    }
 }
