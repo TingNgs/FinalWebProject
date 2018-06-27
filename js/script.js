@@ -17,9 +17,13 @@ $(document).ready(function () {
     firebase.initializeApp(config);
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
+            document.getElementById("header_user_email").empty()
+            document.getElementById("header_user_email").append(firebase.auth().currentUser.email)
             document.getElementById("login_group").style.display = "none";
             document.getElementById("logout_group").style.display = "block"
             if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry") {
+                document.getElementById("login_warning").style.display="none";
+                document.getElementById("dateEntry").style.display="block";
                 loadData();
             }
             if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin") {
@@ -29,6 +33,10 @@ $(document).ready(function () {
         } else {
             if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "admin") {
                 document.getElementById("admin_warning").style.display="block";
+            }
+            if (location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry.html" || location.pathname.substring(location.pathname.lastIndexOf("/") + 1) == "dataEntry") {
+                document.getElementById("login_warning").style.display="block";
+                document.getElementById("dateEntry").style.display="none";
             }
             document.getElementById("login_group").style.display = "block";
             document.getElementById("logout_group").style.display = "none"
@@ -89,7 +97,6 @@ $(document).ready(function () {
         const arcNo = $('#i_arcNo').val();
         const email = $('#i_email').val();
         const user = firebase.auth().currentUser;
-
         const dbUserid = dbUser.child(user.uid)
         dbUserid.set({
             ChineseName: cName,
@@ -103,6 +110,7 @@ $(document).ready(function () {
             Email: email,
             uid: user.uid
         })
+        alert("儲存成功")
     });
     $(document).on("click", ".flip", function (e) {
         clicked = ($(".flip").index(this))
@@ -445,7 +453,7 @@ function loadAllStudentData() {
                                 ),
                             )
                         ),
-                        $('<input type="button" name="edit_Data" tabindex="4" class="btn btn-success edt_btn" value="Edit">'),
+                        $('<input type="button" name="edit_Data"class="btn btn-success edt_btn" value="Edit">'),
                         $("<p class='hide'>").val(allStudentData[i].uid),
                     )
                 )

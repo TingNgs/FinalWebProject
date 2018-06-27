@@ -100,8 +100,6 @@ html {
     opacity: 1;
 }
 
-header {}
-
 header nav {
     margin-top: 15px;
 }
@@ -453,4 +451,14 @@ header {
 #admin_warning{
     display: none;
     margin: 200px auto;
+}
+#login_warning{
+    display: none;
+    margin: 200px auto;
+}
+#dateEntry{
+    display: none;
+}
+#all_student_data input{
+    margin-left: 15px;
 }
