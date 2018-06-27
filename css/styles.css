@@ -23,7 +23,7 @@ html {
         margin-left: 20px;
     }
     #framework .container-fluid {
-        width: 95%;
+        width: 1280px;
         margin: 0 auto;
     }
 }
@@ -31,6 +31,10 @@ html {
 @media only screen and (max-width: 1280px) {
     #framework img {
         width: 100%;
+    }
+    #framework .container-fluid {
+        width: 95%;
+        margin: 0 auto;
     }
     header img {
         margin-left: 0px;
@@ -548,6 +552,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media only screen and (max-width: 1200px) {
+    .event_detail{
+        margin-top: 15px;
+    }
 }
 
 .row.reverse_row {
