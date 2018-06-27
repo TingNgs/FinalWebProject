@@ -459,6 +459,7 @@ header {
 #dataEntry{
     display: none;
     background-color: #c3c3c3;
+    padding: 20px 0;    
 }
 #dataEntry .data_col .row p{
     font-size: 20px;
@@ -467,13 +468,21 @@ header {
 #dataEntry  .row{
     width:98%;
     margin:0 auto;
-    background-color: rgb(255, 255, 255);
+    
     padding-top: 10px;
     padding-bottom: 10px;
 }
-#dataEntry .row input{
+#dataEntry  .container-fluid{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+#dataEntry .row .col-sm-8 input{
     width: 90%;
     margin-top: 10px;
+    font-size: 20px;
+}
+#dataEntry .row .col-sm-4 input{
+    margin-top: 15px;
     font-size: 20px;
 }
 #all_student_data input{
