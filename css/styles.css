@@ -638,6 +638,27 @@ header {
     margin: 10px 0;
 }
 
+#dorm {
+    background-color: #c3c3c3;
+    padding: 20px 0;
+}
+
+#dorm .container-fluid {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#dorm .dormitory .row {
+    margin: 10px 0;
+}
+
+#dorm .dormitory img {
+    width: 100%;
+    height: 100%;
+    padding: 10px 0;
+}
+
 @media only screen and (max-width: 575px) {
     #timetablehead {
         display: none;
