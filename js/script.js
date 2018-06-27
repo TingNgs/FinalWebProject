@@ -656,8 +656,8 @@ function loadEventData() {
                                     ),
                                 )
                             )
-
-                        )
+                        ),
+                        $('<hr>')
                     )
                 })
                 applyNum++;

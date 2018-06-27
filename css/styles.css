@@ -668,3 +668,12 @@ header {
         display: none;
     }
 }
+
+#adminEvent .panel hr{
+    width: 90%;
+    margin: 0 auto;
+    border-top: rgb(240, 240, 240) 1px solid;
+}
+#adminEvent .panel p{
+    margin:10px 0;
+}
