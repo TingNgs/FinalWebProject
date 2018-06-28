@@ -229,7 +229,6 @@ header {
     color: aliceblue;
 }
 
-
 #framework_img {
     overflow-x: auto;
 }
@@ -553,8 +552,9 @@ header {
     align-items: center;
     justify-content: center;
 }
+
 @media only screen and (max-width: 1200px) {
-    .event_detail{
+    .event_detail {
         margin: 15px 0px;
     }
 }
@@ -571,13 +571,16 @@ header {
 .event_title p {
     display: none;
 }
-#new_event .apply_btn{
+
+#new_event .apply_btn {
     display: none
 }
-#new_event .cancel_apply_btn{
+
+#new_event .cancel_apply_btn {
     display: none
 }
-#new_event .login_warning{
+
+#new_event .login_warning {
     display: none;
     color: #e72a2a;
 }
@@ -599,6 +602,10 @@ header {
 
 #checklist .check-list .row div {
     font-size: 20px;
+}
+
+#checklist .check-list .row.ps div {
+    font-size: 14px;
 }
 
 #checklist .check-list input {
@@ -669,17 +676,20 @@ header {
     }
 }
 
-#adminEvent .panel hr{
+#adminEvent .panel hr {
     width: 90%;
     margin: 0 auto;
     border-top: rgb(240, 240, 240) 1px solid;
 }
-#adminEvent .panel p{
-    margin:10px 0;
+
+#adminEvent .panel p {
+    margin: 10px 0;
 }
-#adminEvent .hidden_uid{
+
+#adminEvent .hidden_uid {
     display: none;
 }
-#adminEvent .hidden_eventKey{
+
+#adminEvent .hidden_eventKey {
     display: none;
 }
